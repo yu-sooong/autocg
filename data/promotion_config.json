@@ -1,0 +1,8 @@
+{
+  "websiteName": "我的網站",
+  "websiteUrl": "https://example.com",
+  "description": "這是一個提供創作者資源、設計工具與作品整理的網站。",
+  "targetAudience": ["設計師", "創作者", "自由工作者"],
+  "promotionTopics": ["AI", "設計", "工具", "創作者"],
+  "tone": "自然、友善、不像廣告"
+}

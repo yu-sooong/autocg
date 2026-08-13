@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Post {
+  id               String    @id
+  url              String    @unique
+  author           String
+  text             String
+  createdAt        DateTime?
+  matchedKeywords  String    @default("[]")
+  source           String    @default("mock")
+  status           String    @default("draft")
+  relevanceScore   Int?
+  promotionScore   Int?
+  suitable         Boolean?
+  category         String?
+  reason           String?
+  suggestedComment String?
+  riskLevel        String?
+  approvedAt       DateTime?
+  queuedAt         DateTime?
+  sentAt           DateTime?
+  error            String?
+  attemptCount     Int       @default(0)
+  skippedAt        DateTime?
+  discoveredAt     DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+model Keyword {
+  id        String   @id @default(cuid())
+  phrase    String   @unique
+  enabled   Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model AuthorCooldown {
+  author      String   @id
+  lastHandled DateTime
+}
+
+model DailyCounter {
+  day   String @id
+  count Int    @default(0)
+}
+
+model QueueControl {
+  id                 String  @id @default("default")
+  paused             Boolean @default(false)
+  stopped            Boolean @default(false)
+  delayMs            Int     @default(8000)
+  maxDailyActions    Int     @default(20)
+  authorCooldownDays Int     @default(30)
+}
+
+model ActionLog {
+  id        String   @id @default(cuid())
+  timestamp DateTime @default(now())
+  category  String
+  message   String
+  meta      String?
+}

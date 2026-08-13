@@ -1,0 +1,71 @@
+{
+  "name": "autocg",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "本機 Threads 海巡助手：關鍵字過濾、Cursor 分析、確認後再送出",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yu-sooong/autocg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yu-sooong/autocg/issues"
+  },
+  "homepage": "https://github.com/yu-sooong/autocg#readme",
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "postinstall": "prisma generate",
+    "db:push": "prisma db push",
+    "db:generate": "prisma generate",
+    "threads:login": "tsx scripts/threads-login.ts",
+    "threads:crawl": "tsx scripts/threads-crawl.ts",
+    "cursor:analyze": "tsx scripts/cursor-analyze.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.13.0",
+    "@radix-ui/react-alert-dialog": "^1.1.14",
+    "@radix-ui/react-checkbox": "^1.3.2",
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-progress": "^1.1.7",
+    "@radix-ui/react-scroll-area": "^1.2.9",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-switch": "^1.2.5",
+    "@radix-ui/react-tabs": "^1.1.12",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.539.0",
+    "next": "^15.4.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.3.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "@types/node": "^24.2.1",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.33.0",
+    "eslint-config-next": "^15.4.6",
+    "playwright": "^1.54.2",
+    "postcss": "^8.5.6",
+    "prisma": "^6.13.0",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}
