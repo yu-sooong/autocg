@@ -168,12 +168,18 @@ export function QueueNotice({
   const done = sent + failed;
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border/80 px-6 py-5">
-      <div>
-        <p className="text-sm font-medium">發送進度 {done} / {total}</p>
-        <p className="mt-1 text-sm text-muted-foreground">
-          成功 {sent} · 失敗 {failed} · 今日 {data.queue.dailyCount}/{data.queue.maxDailyActions}
-        </p>
+    <div className="surface flex flex-wrap items-center justify-between gap-4 rounded-[20px] px-6 py-5">
+      <div className="flex items-center gap-3">
+        <span className="agent-pulse h-2.5 w-2.5 rounded-full bg-primary" />
+        <div>
+          <p className="text-sm font-medium">
+            {data.queue.paused ? "已暫停" : "發送中"} {done} / {total}
+          </p>
+          <p className="mt-0.5 text-sm text-muted-foreground">
+            一次一篇 · 成功 {sent} · 失敗 {failed} · 今日 {data.queue.dailyCount}/
+            {data.queue.maxDailyActions}
+          </p>
+        </div>
       </div>
       <div className="flex gap-2">
         <Button

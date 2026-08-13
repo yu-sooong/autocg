@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Noto_Sans_TC } from "next/font/google";
+import { DM_Sans, Noto_Sans_TC } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 const notoSans = Noto_Sans_TC({
   weight: ["400", "500", "600"],
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-cjk",
   display: "swap",
 });
 
@@ -18,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-Hant">
-      <body className={`${notoSans.variable} font-sans`}>
+      <body className={`${dmSans.variable} ${notoSans.variable} font-sans`}>
         {children}
         <Toaster position="top-right" theme="light" richColors />
       </body>

@@ -32,7 +32,7 @@ export function KeywordsPanel({
   }
 
   return (
-    <section className="max-w-xl space-y-8">
+    <section className="surface max-w-2xl space-y-8 rounded-[20px] p-8">
       <div>
         <h2 className="text-lg font-medium tracking-tight">搜尋關鍵字</h2>
         <p className="mt-2 text-sm leading-7 text-muted-foreground">
@@ -95,7 +95,7 @@ export function PromotionForm({
   }
 
   return (
-    <section className="max-w-xl space-y-8">
+    <section className="surface max-w-2xl space-y-8 rounded-[20px] p-8">
       <div>
         <h2 className="text-lg font-medium tracking-tight">推廣設定</h2>
         <p className="mt-2 text-sm leading-7 text-muted-foreground">
@@ -165,7 +165,7 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
 
 export function LoginPanel({ hasAuth }: { hasAuth: boolean }) {
   return (
-    <section className="max-w-xl space-y-6">
+    <section className="surface max-w-2xl space-y-6 rounded-[20px] p-8">
       <div>
         <h2 className="text-lg font-medium tracking-tight">Threads 登入</h2>
         <p className="mt-2 text-sm leading-7 text-muted-foreground">

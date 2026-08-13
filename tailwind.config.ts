@@ -46,12 +46,19 @@ const config: Config = {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)",
+      },
+      boxShadow: {
+        horizon: "0px 18px 40px rgba(112, 144, 176, 0.12)",
+        soft: "0px 18px 40px rgba(112, 144, 176, 0.12)",
+        inset: "inset 0 1px 2px rgba(112, 144, 176, 0.12)",
+        glow: "0 8px 20px hsl(152 28% 38% / 0.22)",
       },
       fontFamily: {
         sans: [
           "var(--font-sans)",
+          "var(--font-cjk)",
           "PingFang TC",
           "Hiragino Sans CNS",
           "Microsoft JhengHei",

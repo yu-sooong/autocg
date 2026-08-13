@@ -10,10 +10,10 @@ const Badge = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium",
+      "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium",
       variant === "default" && "border-transparent bg-primary text-primary-foreground",
-      variant === "secondary" && "border-transparent bg-secondary text-secondary-foreground",
-      variant === "outline" && "text-muted-foreground",
+      variant === "secondary" && "border-transparent bg-accent text-accent-foreground",
+      variant === "outline" && "border-border bg-card text-muted-foreground",
       variant === "success" && "border-transparent bg-emerald-50 text-emerald-700",
       variant === "warning" && "border-transparent bg-amber-50 text-amber-700",
       variant === "muted" && "border-transparent bg-muted text-muted-foreground",

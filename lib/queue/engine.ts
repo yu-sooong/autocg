@@ -2,6 +2,7 @@ import { prisma } from "../storage/db";
 import { getSendProvider } from "../crawler";
 import { normalizeAuthor } from "../threads/canonical";
 import { logEvent } from "../logger";
+import { queueEnv } from "./config";
 
 const g = globalThis as unknown as {
   __threadsQueue?: { running: boolean; timer?: ReturnType<typeof setTimeout> };
@@ -17,14 +18,11 @@ function todayKey(d = new Date()) {
 }
 
 export async function getQueueControl() {
+  const env = queueEnv();
   return prisma.queueControl.upsert({
     where: { id: "default" },
-    update: {},
-    create: {
-      delayMs: Number(process.env.QUEUE_DELAY_MS ?? 8000),
-      maxDailyActions: Number(process.env.MAX_DAILY_ACTIONS ?? 20),
-      authorCooldownDays: Number(process.env.AUTHOR_COOLDOWN_DAYS ?? 30),
-    },
+    update: env,
+    create: env,
   });
 }
 

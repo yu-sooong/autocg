@@ -1,4 +1,5 @@
 import { prisma } from "./db";
+import { queueEnv } from "../queue/config";
 
 const DEFAULT_KEYWORDS = [
   "互相認識",
@@ -19,12 +20,8 @@ const DEFAULT_KEYWORDS = [
 export async function ensureSeed() {
   await prisma.queueControl.upsert({
     where: { id: "default" },
-    update: {},
-    create: {
-      delayMs: Number(process.env.QUEUE_DELAY_MS ?? 8000),
-      maxDailyActions: Number(process.env.MAX_DAILY_ACTIONS ?? 20),
-      authorCooldownDays: Number(process.env.AUTHOR_COOLDOWN_DAYS ?? 30),
-    },
+    update: queueEnv(),
+    create: queueEnv(),
   });
 
   const count = await prisma.keyword.count();

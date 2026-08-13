@@ -50,6 +50,7 @@ export type Overview = {
     running: boolean;
     delayMs: number;
     maxDailyActions: number;
+    authorCooldownDays: number;
     dailyCount: number;
     counts: Record<string, number>;
     sending: Post[];
